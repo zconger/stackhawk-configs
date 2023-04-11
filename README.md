@@ -47,7 +47,23 @@ git commit -am "add stackhawk-configs submodule"
 git push origin main
 ```
 
-# 
+### Initialize submodule in new clones of project repo
 
- 
- * Refer to the configuration files when running `hawk scan <config-files>`
+```shell
+git submodule init
+```
+
+### Update submodule with new changes
+
+```shell
+git submodule update --remote
+```
+
+### Use configuration files when running `hawk scan <config-files>`
+
+```shell
+hawk scan \
+  stackhawk-configs/configs/base/minimal.yml \
+  stackhawk-configs/configs/authentication/token-for-cookie.yml \
+  stackhawk-configs/configs/discovery/openapi.yml
+```
