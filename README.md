@@ -11,4 +11,5 @@ If you have a lot of apps, you can add this repo as a submodule of all of those 
 ## Recommended Use
 
  * Add this repo as a submodule of your application's repo[s]
- * Refer to the configuration snippets and scripts from your main `stackhawk.yml` configuration file
+   * `git submodule add git@github.com:zconger/stackhawk-configs.git`
+ * Refer to the cnofiguration files when running `hawk scan <config-files>`
