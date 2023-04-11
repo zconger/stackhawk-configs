@@ -1,0 +1,4 @@
+app:
+  applicationId: ${SH_APP_ID}
+  env: ${SH_ENV:Development}
+  host: ${SH_HOST:http://localhost:9000}

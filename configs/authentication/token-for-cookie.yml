@@ -1,0 +1,36 @@
+app:
+  sessionTokens:
+    - app-sess-id
+  # How should the scanner authenticate to your application when performing a scan.
+  authentication:
+    # if the request was made by a logged-in user
+    loggedInIndicator: "\\QLog out\\E"
+    loggedOutIndicator: "\\QLog in\\E"
+    # Perform authentication using a custom script, the script must be of type authentication
+    script:
+      # The name of the script as defined in hawkAddOn.scripts
+      name: token-for-cookie.kts
+      # A set of key:value pairs the script can use for configuration
+      parameters:
+        authUrl: ${AUTH_URL:http://localhost:9000/token-for-session}
+        authTokenName: X-auth-token
+      # A set of key:value pairs the script will use for credentials, these values are redacted
+      credentials:
+        authTokenValue: ${AUTH_TOKEN:auth-token}
+    # Manage the session using a customer script, the script must be of type session
+    sessionScript:
+      # The name of the script as defined in hawkAddOn.scripts
+      name: token-and-cookie.kts
+    testPath:
+      type: "HEADER"
+      requestMethod: "GET"
+      path: /app2/profile
+      success: ".*200.*"
+hawkAddOn:
+  scripts:
+    - name: token-for-cookie.kts
+      type: authentication
+      path: stackhawk-configs/scripts
+    - name: token-and-cookie.kts
+      type: session
+      path: scripts/examples
