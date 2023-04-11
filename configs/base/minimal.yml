@@ -1,3 +1,12 @@
+### Minimal StackHawk scanner configuration file
+# This configuration file is enough for a basic scan. It can be used alone or as a base config with other configuration elements added on.
+#
+# REQUIRED ENVIRONMENT VARIABLES:
+#  - SH_APP_ID - The StackHawk Application ID for the app under test
+# OPTIONAL ENVIRONMENT VARIABLES:
+#  - SH_ENV - The app environment name [Default: Development]
+#  - SH_HOST - The target host address [Default: http://localhost:9000]
+
 app:
   applicationId: ${SH_APP_ID}
   env: ${SH_ENV:Development}
