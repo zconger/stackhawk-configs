@@ -30,7 +30,9 @@ hawkAddOn:
   scripts:
     - name: token-for-cookie.kts
       type: authentication
+      language: KOTLIN
       path: stackhawk-configs/scripts
     - name: token-and-cookie.kts
       type: session
-      path: scripts/examples
+      language: KOTLIN
+      path: stackhawk-configs/scripts
